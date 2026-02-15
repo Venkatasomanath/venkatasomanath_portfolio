@@ -1,0 +1,991 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkata Somanath Chittilla Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <H2>  Hello World.Once Again!</H2>
+    <style>
+        /* === THEME VARIABLES === */
+        :root {
+            --bg-color: #141414;
+            --text-color: #e5e5e5;
+            --card-bg: #000000; /* Pure black cards */
+            --nav-bg: #000000;  /* Pure black nav menu */
+            --header-bg: #000;
+            --accent: #e50914;
+            --accent-hover: #ff2a3a;
+            --shadow: rgba(229, 9, 20, 0.2);
+            --card-shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --card-bg: #ffffff;
+            --nav-bg: #e0e0e0;
+            --header-bg: #ffffff;
+            --accent: #d32f2f;
+            --accent-hover: #b71c1c;
+            --shadow: rgba(211, 47, 47, 0.15);
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            animation: fadeInBody 1s ease-out forwards;
+            position: relative;
+        }
+
+        @keyframes fadeInBody {
+            to { opacity: 1; }
+        }
+
+        .header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 160px;
+            box-shadow: 0 4px 12px var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .header:hover {
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        .profile-pic {
+            width: 170px;
+            height: 170px;
+            border-radius: 100%;
+            margin-right: 30px;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 0 20px var(--shadow);
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* NAV MENU - PURE BLACK IN DARK MODE */
+        .nav-menu {
+            background-color: var(--nav-bg);
+            padding: 10px;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto auto;
+            gap: 6px;
+            width: 500px;
+            justify-content: flex-end;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: var(--accent);
+            text-decoration: none;
+            margin: 5px 0;
+            font-size: 14px;
+            text-align: center;
+            padding: 8px 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        /* Toggle Button - Fixed top-right of content */
+        .theme-toggle {
+            position: fixed;
+            top: 180px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1001;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .theme-toggle i {
+            transition: transform 0.4s ease;
+        }
+
+        .section {
+            padding: 30px 20px;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 26px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.4s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--accent);
+        }
+
+        .row {
+            display: flex;
+            overflow-x: auto;
+            padding: 15px 0;
+            gap: 18px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 18px;
+            width: 300px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px var(--card-shadow);
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            scroll-snap-align: start;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        [data-theme="light"] .card {
+            border: 1px solid #dee2e6;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .card p, .card li {
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+
+        .icon {
+            margin-right: 10px;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .icon {
+            transform: scale(1.2);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: var(--accent-hover);
+        }
+
+        .github-link, .pdf-link {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover, .pdf-link:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .github-link a, .pdf-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .github-link a:hover, .pdf-link a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+            .profile-pic {
+                margin: 0 auto 15px;
+            }
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto auto auto;
+                margin-top: 15px;
+            }
+            .theme-toggle {
+                top: 170px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            .row {
+                flex-direction: column;
+                overflow-x: hidden;
+            }
+            .card {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+        /* Theme-aware profile picture switching */
+.profile-pic-wrapper {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.profile-dark {
+    opacity: 1;
+}
+
+.profile-light {
+    opacity: 0;
+}
+
+[data-theme="light"] .profile-dark {
+    opacity: 0;
+}
+
+[data-theme="light"] .profile-light {
+    opacity: 1;
+}
+    </style>
+</head>
+<body data-theme="dark">
+
+    <!-- Theme Toggle - Fixed top-right of content -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <header class="header">
+        <div class="profile-pic-wrapper">
+    <img 
+        src="https://raw.githubusercontent.com/Venkatasomanath/assets/main/Dark.jpeg" 
+        alt="Profile Picture - Dark Theme" 
+        class="profile-pic profile-dark"
+    >
+    <img 
+        src="https://raw.githubusercontent.com/Venkatasomanath/assets/main/Light.jpeg" 
+        alt="Profile Picture - Light Theme" 
+        class="profile-pic profile-light"
+    >
+</div>
+        <div class="contact">
+            <h1>Venkata Somanath Chittilla</h1>
+            <p>FRANCE | Phone: +33 745740751 | cvsomu007@gmail.com | <a href="https://github.com/Venkatasomanath">Github</a></p>
+        </div>
+        <nav class="nav-menu">
+            <a href="#education">Education</a>
+            <a href="#technical-skills">Technical Skills</a>
+            <a href="#soft-skills">Soft Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#work-experience">Work Experience</a>
+            <a href="#Projects">Projects</a>
+            <a href="#publications">Publications</a>
+            <a href="#leadership-experience">Leadership Experience</a>
+            <a href="#hobbies">Hobbies</a>
+        </nav>
+    </header>
+
+    <section class="section" id="professional-summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>Results-oriented professional with experience spanning data analytics, business intelligence, cybersecurity, and risk and compliance functions, with a strong command of Python. Proficient in using tools such as Power BI, SQL, to support data-driven decision-making, operational efficiency, and risk management. Holds dual degrees in Management and Business Analytics, with a strong foundation in applying data and technology to address complex business and regulatory challenges. Demonstrates a strong interest in governance, security, Fincrime operations, IT audit, and compliance, with a focus on strengthening organizational controls and supporting strategic objectives.</p>
+    </section>
+
+    <section class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Neoma Business School</h3>
+                <p>MIM - Masters In Management - GPA: 3.054/4</p>
+                <p>MSc BA - Master of Science Business Analytics - currently pursuing</p>
+            </div>
+            <div class="card">
+                <h3>Nadimpalli Satyanarayana Raju Institute of Technology (NSRIT)</h3>
+                <p>B.TECH - Bachelors of Technology in Computer Science & Engineering - GPA: 7.24/10</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="technical-skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Programming Languages</h3>
+                <ul>
+                    <li><i class="fas fa-code icon"></i>Python</li>
+                    <li><i class="fas fa-code icon"></i>R</li>
+                    <li><i class="fas fa-code icon"></i>C</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Databases</h3>
+                <ul>
+                    <li><i class="fas fa-database icon"></i>SQL</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Security Frameworks</h3>
+                <ul>
+                    <li><i class="fas fa-shield-alt icon"></i>ISO 27001</li>
+                    <li><i class="fas fa-shield-alt icon"></i>SOX Compliance</li>
+                    <li><i class="fas fa-shield-alt icon"></i>NIST</li>
+                    <li><i class="fas fa-shield-alt icon"></i>GDPR</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Governance and Compliance</h3>
+                <ul>
+                    <li><i class="fas fa-gavel icon"></i>GRC</li>
+                    <li><i class="fas fa-gavel icon"></i>Risk Management</li>
+                    <li><i class="fas fa-gavel icon"></i>Networking</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Security Operations And Fincrime Operations</h3>
+                <ul>
+                    <li><i class="fas fa-lock icon"></i>Access Control</li>
+                    <li><i class="fas fa-lock icon"></i>Incident Response</li>
+                    <li><i class="fas fa-lock icon"></i>AML/CFT/KYC</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Tools & Web Technologies</h3>
+                <ul>
+                    <li><i class="fas fa-tools icon"></i>Active Directory</li>
+                    <li><i class="fas fa-tools icon"></i>Microsoft Office Suite</li>
+                    <li><i class="fas fa-tools icon"></i>HTML</li>
+                    <li><i class="fas fa-tools icon"></i>CSS</li>
+                    <li><i class="fas fa-tools icon"></i>CRM</li>
+                    <li><i class="fas fa-tools icon"></i>Jira</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Cybersecurity Tools</h3>
+                <ul>
+                    <li><i class="fas fa-shield-alt icon"></i>Beyond Trust PAM</li>
+                    <li><i class="fas fa-shield-alt icon"></i>Splunk</li>
+                    <li><i class="fas fa-shield-alt icon"></i>Autopsy</li>
+                    <li><i class="fas fa-shield-alt icon"></i>Checkpoint</li>
+                    <li><i class="fas fa-shield-alt icon"></i>Pfsense</li>
+			</ul>
+            </div>
+            <div class="card">
+                <h3>BI & Analytics</h3>
+                <ul>
+                    <li><i class="fas fa-chart-bar icon"></i>Power BI</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Excel</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Operating Systems</h3>
+                <ul>
+                    <li><i class="fab fa-windows icon"></i>Windows</li>
+                    <li><i class="fab fa-linux icon"></i>Linux</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Methodologies</h3>
+                <ul>
+                    <li><i class="fas fa-cogs icon"></i>SDLC (Software Development Life Cycle)</li>
+                    <li><i class="fas fa-cogs icon"></i>STM (Software Testing Methodologies)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Business Models</h3>
+                <ul>
+                    <li><i class="fas fa-business-time icon"></i>Freemium Model</li>
+                    <li><i class="fas fa-business-time icon"></i>Subscription Model</li>
+                    <li><i class="fas fa-business-time icon"></i>Marketplace Model</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Cloud</h3>
+                <ul>
+                    <li><i class="fas fa-cloud icon"></i>AWS</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>AI Tools</h3>
+                <ul>
+                    <li><i class="fas fa-robot icon"></i>ChatGPT</li>
+                    <li><i class="fas fa-robot icon"></i>Grok AI</li>
+                    <li><i class="fas fa-robot icon"></i>DeepSeek</li>
+                    <li><i class="fas fa-robot icon"></i>Perplexity</li>
+                    <li><i class="fas fa-robot icon"></i>Gemini</li>
+                    <li><i class="fas fa-robot icon"></i>Claude.ai</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="soft-skills">
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Analytical Thinking</h3>
+                <ul>
+                    <li><i class="fas fa-brain icon"></i>Ability to assess complex security issues, identify risks, and develop effective mitigation strategies.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Attention to Detail</h3>
+                <ul>
+                    <li><i class="fas fa-eye icon"></i>Meticulous in monitoring systems, reviewing access logs, and ensuring compliance with policies and standards.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Communication Skills</h3>
+                <ul>
+                    <li><i class="fas fa-comments icon"></i>Clear and concise communication with technical teams, clients, and management to explain security risks and recommendations.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Collaboration</h3>
+                <ul>
+                    <li><i class="fas fa-users icon"></i>Proven ability to work effectively across cross-functional teams and with diverse stakeholders to achieve common security goals.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Problem-Solving</h3>
+                <ul>
+                    <li><i class="fas fa-lightbulb icon"></i>Strong capability to troubleshoot incidents, perform root cause analysis, and implement corrective actions swiftly.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Adaptability</h3>
+                <ul>
+                    <li><i class="fas fa-sync icon"></i>Comfortable working in rapidly evolving environments and able to quickly learn new tools, technologies, and regulations.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Time Management</h3>
+                <ul>
+                    <li><i class="fas fa-clock icon"></i>Efficiently managing multiple incidents and audit tasks while meeting strict deadlines and SLA requirements.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Data Science – Wipro</h3>
+                <ul>
+                    <li><i class="fas fa-certificate icon"></i>Completed certification in Data Science from Wipro, issued June 10, 2022.</li>
+                </ul>
+                <div class="pdf-link">
+                    <a href="https://github.com/Venkatasomanath/Certificates/blob/main/Datascience-Stackroute.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>View Certificate</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Junior Cyber Security Analyst – Cisco</h3>
+                <ul>
+                    <li><i class="fas fa-certificate icon"></i>Completed certification as a Junior Cyber Security Analyst from Cisco, issued May 29, 2024.</li>
+                </ul>
+                <div class="pdf-link">
+                    <a href="https://github.com/Venkatasomanath/Certificates/blob/main/Jr.Security%20Analyst-Cisco.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>View Certificate</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Python Programming – University of Michigan</h3>
+                <ul>
+                    <li><i class="fas fa-certificate icon"></i>Completed certification in Python Programming from University of Michigan, issued Oct 10, 2022.</li>
+                </ul>
+                <div class="pdf-link">
+                    <a href="https://github.com/Venkatasomanath/Certificates/blob/main/Python-michigan%20Certificate.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>View Certificate</a>
+                </div>
+            </div>
+            <div class="card">
+    <h3>AML and KYC – KYC Lookup</h3>
+    <ul>
+        <li>
+            <i class="fas fa-certificate icon"></i>
+            Completed foundation to AML and KYC certification focused on customer due diligence and financial crime prevention.
+        </li>
+    </ul>
+    <div class="pdf-link">
+        <a href="https://github.com/Venkatasomanath/Certificates/blob/main/AML%20and%20KYC-KYC%20Lookup.pdf" target="_blank">
+            <i class="fas fa-file-pdf icon"></i>View Certificate
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <h3>ISO Lead Auditor – Mastermind</h3>
+    <ul>
+        <li>
+            <i class="fas fa-certificate icon"></i>
+            Certified ISO 27001:2022 Lead Auditor with training in audit planning, compliance assessment, and governance frameworks.
+        </li>
+    </ul>
+    <div class="pdf-link">
+        <a href="https://github.com/Venkatasomanath/Certificates/blob/main/ISO-Lead%20auditor-Mastermind.pdf" target="_blank">
+            <i class="fas fa-file-pdf icon"></i>View Certificate
+        </a>
+    </div>
+</div>
+            <div class="card">
+                <h3>AI Introduction – Accenture</h3>
+                <ul>
+                    <li><i class="fas fa-certificate icon"></i>Completed introductory certification in Artificial Intelligence from Accenture, issued April 15, 2022.</li>
+                </ul>
+                <div class="pdf-link">
+                    <a href="https://github.com/Venkatasomanath/Certificates/blob/main/AI-%20Accenture.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>View Certificate</a>
+                </div>
+            </div>
+            
+            <div class="card">
+    <h3>CTIGA – Red Team Leaders</h3>
+    <ul>
+        <li>
+            <i class="fas fa-certificate icon"></i>
+            Earned (Certified threat intelligence & Governance Analyst) certification focused on red team leadership, adversary tactics, and offensive security strategies.
+        </li>
+    </ul>
+    <div class="pdf-link">
+        <a href="https://github.com/Venkatasomanath/Certificates/blob/main/CTIGA-%20Redteam%20Leaders.pdf" target="_blank">
+            <i class="fas fa-file-pdf icon"></i>View Certificate
+        </a>
+    </div>
+</div>
+
+            <div class="card">
+                <h3>ISMS Foundation– SandBP</h3>
+                <ul>
+                    <li><i class="fas fa-certificate icon"></i>Completed ISO/IEC 27001 Information Security Management System (ISMS) Foundation certification from SandBP.</li>
+                </ul>
+                <div class="pdf-link">
+                    <a href="https://github.com/Venkatasomanath/Certificates/blob/main/SandBP-Certificate-ISMS.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="work-experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Security Analyst – PAM Technology (BeyondTrust, Active Directory)</h3>
+                <p>March 2023 – September 2024</p>
+                <p>As a Security Analyst at Wipro Technologies, I specialized in Privileged Access Management (PAM), with a focus on BeyondTrust PAM solutions and Active Directory administration. My role encompassed safeguarding enterprise infrastructure, ensuring compliance, and enhancing operational resilience by implementing and managing security best practices across Windows and Linux environments.</p>
+                <div class="row">
+                    <div class="card">
+                        <h3>Key Responsibilities & Achievements</h3>
+                        <ul>
+                            <li><i class="fas fa-key icon"></i>Privileged Access Management (PAM) Operations: Configured, administered, and monitored BeyondTrust PAM to secure privileged accounts, enforce least-privilege policies, and prevent unauthorized access.</li>
+                            <li><i class="fas fa-key icon"></i>Managed user provisioning, de-provisioning, and access rights reviews in Active Directory, ensuring alignment with organizational security policies.</li>
+                            <li><i class="fas fa-server icon"></i>Server & Infrastructure Security: Oversaw Windows and Linux server security through PAM tools and AD integration.</li>
+                            <li><i class="fas fa-server icon"></i>Streamlined the decommissioning of retired servers, eliminating redundant access points and improving compliance with regulatory requirements.</li>
+                            <li><i class="fas fa-server icon"></i>Collaborated with infrastructure teams to apply patches and updates, reducing vulnerabilities and enhancing resilience.</li>
+                            <li><i class="fas fa-file-alt icon"></i>Compliance & Reporting: Produced detailed compliance and audit reports, mapping security controls to internal and external regulations.</li>
+                            <li><i class="fas fa-file-alt icon"></i>Developed and automated real-time tracking dashboards in Excel/Power BI to monitor privileged activity, reducing manual errors and increasing visibility.</li>
+                            <li><i class="fas fa-exclamation-triangle icon"></i>Incident Management & Troubleshooting: Handled and resolved firewall, server, and access-related configuration issues, improving uptime and reliability of critical systems.</li>
+                            <li><i class="fas fa-exclamation-triangle icon"></i>Conducted root cause analysis (RCA) for recurring incidents, implementing long-term fixes that reduced response time and incident recurrence.</li>
+                            <li><i class="fas fa-exclamation-triangle icon"></i>Addressed high-volume incident and service requests, consistently meeting SLA timelines and receiving commendations from clients for responsiveness.</li>
+                            <li><i class="fas fa-handshake icon"></i>Cross-functional Collaboration & Client Engagement: Partnered with cross-functional teams (network, server, and application teams) to ensure secure integration of PAM across enterprise systems.</li>
+                            <li><i class="fas fa-handshake icon"></i>Worked directly with clients during troubleshooting sessions, identifying risks and implementing tailored security solutions.</li>
+                            <li><i class="fas fa-handshake icon"></i>Provided knowledge transfer and training sessions to colleagues, improving overall team efficiency and security awareness.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Key Impact</h3>
+                        <ul>
+                            <li><i class="fas fa-chart-line icon"></i>Reduced server decommissioning cycle time by 40%, improving infrastructure hygiene and compliance tracking.</li>
+                            <li><i class="fas fa-chart-line icon"></i>Enhanced incident response efficiency by 30% through RCA documentation and automation of routine monitoring tasks.</li>
+                            <li><i class="fas fa-chart-line icon"></i>Strengthened audit readiness, resulting in positive feedback during internal and client security audits.</li>
+                            <li><i class="fas fa-chart-line icon"></i>Contributed to business continuity by ensuring secure access to critical systems during patching and integration activities.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Wipro Technologies - Data Science Intern</h3>
+                <p>Mar 2022 - Jun 2022</p>
+                <h4>Key Responsibilities & Achievements</h4>
+                <ul>
+                    <li><i class="fas fa-database icon"></i>Data Collection & Preparation: Collected and organized data from Excel files, CSVs, and online sources for analysis.</li>
+                    <li><i class="fas fa-database icon"></i>Cleaned and formatted data using Python (pandas, NumPy) to remove duplicates, fill missing values, and correct data types.</li>
+                    <li><i class="fas fa-database icon"></i>Prepared small datasets for projects and reports, improving data accuracy and consistency.</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Exploratory Data Analysis (EDA): Performed basic analysis to understand data patterns, trends, and correlations.</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Created charts and visualizations using Matplotlib and Seaborn to explain findings clearly.</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Summarized insights from data to support project discussions and small case studies.</li>
+                    <li><i class="fas fa-robot icon"></i>Basic Machine Learning Practice: Learned and implemented simple models like Linear Regression and Decision Trees using Scikit-learn.</li>
+                    <li><i class="fas fa-robot icon"></i>Tested models on sample datasets to predict outcomes (e.g., house prices, sales forecasts).</li>
+                    <li><i class="fas fa-robot icon"></i>Compared model results using accuracy and mean error scores.</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Data Visualization & Reporting: Designed clear charts and dashboards in Power BI or Excel to present project results.</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Created simple reports summarizing data insights and recommendations.</li>
+                    <li><i class="fas fa-chart-bar icon"></i>Shared findings with mentors and teammates during project reviews.</li>
+                    <li><i class="fas fa-users icon"></i>Teamwork & Learning: Worked with teammates to divide tasks such as data cleaning, analysis, and presentation.</li>
+                    <li><i class="fas fa-users icon"></i>Actively learned new data tools and techniques from online resources and mentors.</li>
+                </ul>
+                <h4>Key Impact</h4>
+                <ul>
+                    <li><i class="fas fa-chart-line icon"></i>Improved dataset quality by carefully cleaning and validating data before analysis.</li>
+                    <li><i class="fas fa-chart-line icon"></i>Helped visualize trends that made it easier to explain project results to non-technical members.</li>
+                    <li><i class="fas fa-chart-line icon"></i>Gained practical experience in using Python and Power BI for real-world data problems.</li>
+                    <li><i class="fas fa-chart-line icon"></i>Strengthened understanding of how data supports business and decision-making processes.</li>
+                    <li><i class="fas fa-chart-line icon"></i>Assisted in developing and optimizing machine learning models and automated data pipelines using Python.</li>
+                    <li><i class="fas fa-chart-line icon"></i>Conducted data analysis and visualization to support business insights and reporting.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="Projects">
+        <h2 class="section-title">Projects</h2>
+        <h3>Technical Projects</h3>
+        <div class="row">
+            <div class="card">
+                <h3>Dual-Domain Predictive Modeling</h3>
+                <p>Built Vector Error Correction Model confirming long-term advertising-sales relationship (p < 0.05).</p>
+                <p>Achieved 90% heart disease prediction accuracy using Random Forest vs 85% with Logistic Regression.</p>
+                <p>Segmented patients into 3 risk clusters using K-Means and Hierarchical clustering.</p>
+                <p>Tools: R, Python, Scikit-learn, Statsmodels, VECM (Vector Error Correction Model), Clustering.</p>
+                <div class="github-link">
+                    <a href="https://github.com/Venkatasomanath/Dual-Domain-Predictive-Modeling-Business-Healthcare-Analytics" target="_blank"><i class="fab fa-github icon"></i>View on GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Financial & ESG Risk Analysis</h3>
+                <p>Analyzed Tesla, Ford, Volkswagen financials (2021-2024) with automated data pipeline.</p>
+                <p>Discovered strong inverse correlation (r = -0.98) between ESG risk and profitability.</p>
+                <p>Forecasted 2025-2026 financial ratios using Linear Regression.</p>
+                <p>Tools: Python, Pandas, Scikit-learn, Matplotlib.</p>
+                <div class="github-link">
+                    <a href="https://github.com/Venkatasomanath/Financial-and-ESG-risk-analysis" target="_blank"><i class="fab fa-github icon"></i>View on GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Airline Passenger Satisfaction</h3>
+                <p>Identified departure delays as primary satisfaction driver (p < 0.05 via T-test).</p>
+                <p>Found business class passengers experience fewer delays than economy (ANOVA).</p>
+                <p>Loyal customers showed higher satisfaction levels (Chi-squared test).</p>
+                <p>Tools: R/Python, Logistic Regression, Hypothesis Testing, Statistical Diagnostics.</p>
+                <div class="github-link">
+                    <a href="https://github.com/Venkatasomanath/Airline-Passenger-Satisfaction-Analysis" target="_blank"><i class="fab fa-github icon"></i>View on GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Render Studio - Online IDE</h3>
+                <p>Developed web-based IDE for HTML/CSS/JavaScript with real-time rendering.</p>
+                <p>Implemented instant output feature using DOM manipulation and event handling.</p>
+                <p>Created responsive parallel coding interface with view toggling.</p>
+                <p>Tools: HTML5, CSS3, JavaScript, Bootstrap, jQuery.</p>
+                <div class="github-link">
+                    <a href="https://github.com/Venkatasomanath/Render-Studio-Online-IDE-" target="_blank"><i class="fab fa-github icon"></i>View on GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Sales Insights Dashboard</h3>
+                <p>Automated sales reporting by building an interactive Power BI dashboard with dynamic revenue, trend, and demographic visualizations.</p>
+                <p>Wrote complex SQL queries and DAX measures to transform raw sales data into actionable KPIs.</p>
+                <p>Boosted reporting efficiency by 20%, enabling faster, data-driven decisions for inventory management and marketing campaigns.</p>
+                <p>Tools: Power BI, DAX, SQL, Data Visualization.</p>
+                <div class="github-link">
+                    <a href="https://github.com/Venkatasomanath/Sales-Insights-Dashboard" target="_blank"><i class="fab fa-github icon"></i>View on GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Detection of Toxicity in Comments Using ML Algorithms</h3>
+                <p>Developed real-time text classification model to flag toxic comments in online forums and social media platforms.</p>
+                <p>Achieved 95% accurate moderation, reducing manual workload and improving community safety.</p>
+                <p>Tools: Python, Scikit-learn, Pandas, Flask.</p>
+                <div class="github-link">
+                    <a href="https://github.com/Venkatasomanath/Detection-of-Toxicity-in-comments-using-ML-algorithms" target="_blank"><i class="fab fa-github icon"></i>View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        <h3>Business & Management Projects</h3>
+        <div class="row">
+            <div class="card">
+                <h3>Fast Fashion Strategy (H&M vs Zara)</h3>
+                <p>Conducted a comparative strategic analysis of H&M and Zara (Inditex), focusing on competitive positioning and operational efficiency.</p>
+                <p>Applied Porter’s Generic Strategies to analyze cost leadership (H&M, Primark) vs differentiation (Zara, Uniqlo).</p>
+                <p>Assessed internal capabilities like H&M’s global supply chain and Zara’s agile design-to-retail model.</p>
+                <p>Key Insights: Zara excels in trend responsiveness and vertical integration; H&M leverages pricing and scale.</p>
+                <p>Recommendations: Suggested improvements in sustainability, tech-driven stock management, and omnichannel experiences.</p>
+                <p>Outcome: Highlighted the balance between cost efficiency and customer personalization in fast fashion success.</p>
+            </div>
+            <div class="card">
+                <h3>HR Business Plan – ProTech AI Advisors</h3>
+                <p>Developed a comprehensive HR strategy for an AI consultancy with 2000+ employees operating globally.</p>
+                <p>Vision & Strategy: Designed HR vision aligned with business goals—focusing on innovation, diversity, and high performance.</p>
+                <p>Core Areas: Recruitment of AI talent, AI-focused training programs, DEI initiatives, and AI-powered performance management.</p>
+                <p>Implementation: Proposed tools (HRIS, LMS), budget allocation, and evaluation metrics (retention, satisfaction, AI adoption).</p>
+                <p>Outcomes: Action plan for global talent expansion, leadership development, and continuous strategy refinement.</p>
+            </div>
+            <div class="card">
+                <h3>Capital Budgeting Project – Ford’s EV Transition</h3>
+                <p>Evaluated Ford’s investment in electric vehicle manufacturing using capital budgeting techniques.</p>
+                <p>Forecasting: Modeled FCF using EV market growth, pricing, COGS, R&D, and SG&A trends through 2045.</p>
+                <p>Valuation: Calculated Net Present Value (€100.9B), IRR (30%), and WACC (6.59%) to assess project viability.</p>
+                <p>Terminal Value: Used Perpetuity Growth Model for long-term valuation, emphasized sensitivity to assumptions.</p>
+                <p>Scenario Analysis: Simulated best/worst-case outcomes with variable revenues, R&D, and pricing strategies.</p>
+                <p>Outcome: Project recommended for investment—high profitability and return above WACC despite risk adjustments.</p>
+            </div>
+            <div class="card">
+                <h3>Digital Automation Project – Sofradom</h3>
+                <p>Collaborated on a digital transformation project for Sofradom, a leader in commercial domiciliation with 60+ agencies and 115,000+ clients.</p>
+                <p>Research & Problem Identification: Conducted interviews with agency managers to uncover key pain points: manual follow-ups for overdue payments, inefficiencies in mail and contract management, and staff workload due to repetitive tasks.</p>
+                <p>Solution & Contribution: Designed and implemented a chatbot prototype using Wix, automated follow-ups via Email/SMS, created a one-click personalized messaging feature.</p>
+                <p>Aimed to boost efficiency, accuracy, and client satisfaction.</p>
+                <p>Delivered a working solution that streamlined operations and minimized manual effort.</p>
+            </div>
+            <div class="card">
+                <h3>Sustainability Finance: ESG Investment Strategy</h3>
+                <p>Developed an ESG-focused equity investment strategy by selecting companies with strong Environmental, Social, and Governance (ESG) performance.</p>
+                <p>Research & Problem Identification: Emphasized companies with diverse and independent leadership,prioritized environmental innovation and financial stability, evaluated 15 companies across ESG parameters.</p>
+                <p>Solution & Contribution: Created a scoring-based selection framework; shortlisted top 10 firms (e.g., Schneider Electric, Kering, BNP Paribas)assessed performance on renewable energy use, governance strength, and R&D investment.</p>
+                <p>Outcome: Built a sustainable investment portfolio aligned with long-term value creation and ethical investing standards.</p>
+            </div>
+            <div class="card">
+                <h3>Voter Empowerment Campaign – Social Media & Elections</h3>
+                <p>Analyzed the influence of social media on democratic processes, focusing on its role in shaping public opinion and impacting election outcomes.</p>
+                <p>Key Contributions: Investigated real-world cases (India 2019, U.S. 2024, AP 2024) showing misinformation via social platforms; evaluated campaign strategies like micro-targeting, influencer marketing, and bot-driven content.</p>
+                <p>Proposed regulatory measures and digital literacy initiatives to combat misinformation.</p>
+                <p>Outcome: Developed a policy advisor-style presentation offering strategic recommendations for electoral commissions to safeguard democratic integrity.</p>
+            </div>
+            <div class="card">
+                <h3>Supply Chain Management – Warehouse Design</h3>
+                <p><strong>Team Project | Tools:</strong> Excel, Power BI, Toyota Material Handling Simulator</p>
+                <p>Designed an optimized warehouse layout for 8,000 unit loads using the Toyota Traigo 80 3-Wheel Electric Forklift, balancing capacity, cost, and sustainability.</p>
+                <p><strong>Research & Problem Identification:</strong> Analyzed 2022 daily stock data to identify demand fluctuations and calculate undersizing risk (UR = 25.21%).</p>
+                <p><strong>Solution & Contribution:</strong></p>
+                <ul>
+                    <li>Developed a cross-aisle warehouse layout (54 m × 104 m) with 5,490 m² optimized storage.</li>
+                    <li>Simulated forklift movement to reduce average cycle time to 146.7 seconds, improving efficiency by 20%.</li>
+                    <li>Configured Toyota Traigo 80 forklifts for energy-efficient, sustainable operations.</li>
+                    <li>Performed cost analysis: $714K annual, $3.57M over 5 years, including depreciation, rent, energy, and workforce.</li>
+                    <li>Proposed sustainability initiatives: solar energy, LED lighting, and recycling, reducing 2.5 tons CO₂/year.</li>
+                </ul>
+                <p><strong>Outcome:</strong> Delivered a data-driven, cost-effective, and sustainable warehouse model that enhanced storage utilization and minimized operational risks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Identifying Toxicity in Comments Using Machine Learning Algorithms</h3>
+                <p>Published in International Journal of Scientific Research in Computer Science, Engineering and Information Technology (IJSRCSEIT).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="leadership-experience">
+        <h2 class="section-title">Leadership Experience</h2>
+        <div class="row">
+            <div class="card">
+                <p><i class="fas fa-user-tie icon"></i>Mentored junior team members and led knowledge-sharing sessions during a cybersecurity project implementation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="hobbies">
+        <h2 class="section-title">Hobbies</h2>
+        <div class="row">
+            <div class="card">
+                <ul>
+                    <li><i class="fas fa-music icon"></i>Singing</li>
+                    <li><i class="fas fa-music icon"></i>Dancing</li>
+                    <li><i class="fas fa-theater-masks icon"></i>Mimicry</li>
+                    <li><i class="fas fa-baseball-ball icon"></i>Playing Cricket and Badminton</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Theme Toggle
+        const toggleButton = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = toggleButton.querySelector('i');
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const cards = entry.target.querySelectorAll('.card');
+                    cards.forEach((card, i) => {
+                        card.style.transitionDelay = `${i * 0.1}s`;
+                        card.classList.add('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.section, .card').forEach(el => observer.observe(el));
+
+        window.addEventListener('load', () => {
+            document.body.style.opacity = 1;
+        });
+    </script>
+</body>
+</html>
