@@ -1187,6 +1187,8 @@
         <a href="#publications-row">Publications</a>
         <a href="#leadership-row">Leadership</a>
         <a href="#hobbies-row">Hobbies</a>
+        <a href="#achievements-row">Achievements</a>
+        <a href="#volunteer-row">Volunteer</a>
     </div>
     <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
@@ -1208,7 +1210,7 @@
             Venkata<br><span>Somanath</span><br>Chittilla
         </h1>
         <p class="hero-subtitle">
-            Data Analytics · Business Intelligence · Cybersecurity · Risk & Compliance
+            Data Analytics · Business Intelligence · Cybersecurity · Risk & Compliance · Fincrime Operations
         </p>
         <div class="hero-meta">
             <div class="hero-meta-item">
@@ -2074,7 +2076,7 @@
             <div class="row-number">11</div>
             <div class="row-title-wrap">
                 <div class="row-label">Beyond Work</div>
-                <div class="row-title">Hobbies & Interests</div>
+                <div class="row-title">Hobbies &amp; Interests</div>
             </div>
             <div class="row-divider"></div>
         </div>
@@ -2128,10 +2130,126 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Sports</span>
-                        <div class="card-title">Cricket & Badminton</div>
+                        <div class="card-title">Cricket &amp; Badminton</div>
                         <div class="card-desc">Active player of Cricket and Badminton, promoting fitness and teamwork.</div>
                     </div>
                     <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> More</div></div>
+                </div>
+
+            </div>
+            <button class="slider-btn next" onclick="slide(this,1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- ===== ACHIEVEMENTS ROW ===== -->
+    <div class="netflix-row" id="achievements-row">
+        <div class="row-header">
+            <div class="row-number">12</div>
+            <div class="row-title-wrap">
+                <div class="row-label">Recognition</div>
+                <div class="row-title">Achievements &amp; Awards</div>
+            </div>
+            <div class="row-divider"></div>
+        </div>
+        <div class="cards-slider">
+            <button class="slider-btn prev" onclick="slide(this,-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="cards-track">
+
+                <div class="nf-card wide" onclick="openModal('ach1')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-4">🏆</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Academic</span>
+                        <div class="card-title">Academic Achievements</div>
+                        <div class="card-desc">TCS NQT 74% · Neoma Excellence Scholarship €3,000 · APSSDC Python FDP Certificate</div>
+                    </div>
+                    <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> Details</div><span class="card-year">2020–2024</span></div>
+                </div>
+
+                <div class="nf-card wide" onclick="openModal('ach2')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-6">🌿</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Open Badge</span>
+                        <div class="card-title">NEOMACT Academy – Climate &amp; Environment</div>
+                        <div class="card-desc">Three open badges issued by NEOMA BS for completing the NEOMACT Academy programme on climate, biodiversity, and sustainability.</div>
+                    </div>
+                    <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> Details</div><span class="card-year">2024–2025</span></div>
+                </div>
+
+            </div>
+            <button class="slider-btn next" onclick="slide(this,1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- ===== VOLUNTEER ROW ===== -->
+    <div class="netflix-row" id="volunteer-row">
+        <div class="row-header">
+            <div class="row-number">13</div>
+            <div class="row-title-wrap">
+                <div class="row-label">Community</div>
+                <div class="row-title">Volunteer Experience</div>
+            </div>
+            <div class="row-divider"></div>
+        </div>
+        <div class="cards-slider">
+            <button class="slider-btn prev" onclick="slide(this,-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="cards-track">
+
+                <div class="nf-card wide" onclick="openModal('vol1')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-1">🎓</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Education</span>
+                        <div class="card-title">Volunteer Explorer &amp; Skills Builder</div>
+                        <div class="card-desc">University of Leeds · Apr 2026 – Present. Completed structured volunteering training in safeguarding, EDI, GDPR, and community engagement.</div>
+                    </div>
+                    <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> Details</div><span class="card-year">2026–Present</span></div>
+                </div>
+
+                <div class="nf-card wide" onclick="openModal('vol2')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-3">🎨</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Arts &amp; Culture</span>
+                        <div class="card-title">Club Coordinator – Arts &amp; Culture</div>
+                        <div class="card-desc">NSRIT (Autonomous) · Sep 2018 – Dec 2020. Led cultural events promoting Indian arts, dance, and music through student-led initiatives.</div>
+                    </div>
+                    <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> Details</div><span class="card-year">2018–2020</span></div>
+                </div>
+
+                <div class="nf-card wide" onclick="openModal('vol3')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-2">🩸</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Health</span>
+                        <div class="card-title">Blood Donation Volunteer</div>
+                        <div class="card-desc">Vizag Volunteers Association · Jan 2019 – Present. Regular blood donor supporting community healthcare and emergency medical needs.</div>
+                    </div>
+                    <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> Details</div><span class="card-year">2019–Present</span></div>
+                </div>
+
+                <div class="nf-card wide" onclick="openModal('vol4')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-3">🌱</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Environment</span>
+                        <div class="card-title">Environmental Contributor</div>
+                        <div class="card-desc">Tilicho Labs · Sep 2019 · 1 mo. Participated in cleanup drives, tree plantation, and environmental awareness activities.</div>
+                    </div>
+                    <div class="card-footer"><div class="card-action"><i class="fas fa-play"></i> Details</div><span class="card-year">Sep 2019</span></div>
                 </div>
 
             </div>
@@ -2151,6 +2269,8 @@
         <a href="#certs-row">Certifications</a>
         <a href="#exp-row">Experience</a>
         <a href="#projects-row">Projects</a>
+        <a href="#achievements-row">Achievements</a>
+        <a href="#volunteer-row">Volunteer</a>
         <a href="https://github.com/Venkatasomanath" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/venkata-somanath-chittilla-0a2385244" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:cvsomu007@gmail.com">Email</a>
@@ -3943,6 +4063,198 @@ const modalData = {
                 'Demonstrates competitiveness and willingness to collaborate under pressure'
             ]
         }]
+    },
+
+    // ACHIEVEMENTS
+    ach1: {
+        tag: 'Academic Achievement',
+        icon: '🏆',
+        grad: 'grad-4',
+        title: 'Academic Achievements & Awards',
+        meta: [
+            { icon: 'fas fa-calendar', text: '2020 – 2024' },
+            { icon: 'fas fa-university', text: 'NSRIT · NEOMA Business School' }
+        ],
+        desc: 'A collection of academic milestones spanning aptitude excellence, merit-based scholarship recognition, and professional development certifications.',
+        sections: [
+            {
+                title: 'TCS National Qualifier Test (NQT)',
+                icon: 'fas fa-trophy',
+                list: [
+                    'Score: 74% · April 2021 · Associated with NSRIT (Autonomous)',
+                    'Demonstrated strong foundation in aptitude, problem-solving, and technical skills',
+                    'National-level competitive test benchmarking candidates across India',
+                    'Reflects readiness for real-world technology roles and industry challenges'
+                ]
+            },
+            {
+                title: 'Neoma Excellence Scholarship',
+                icon: 'fas fa-medal',
+                list: [
+                    'Merit-based scholarship of €3,000 awarded by NEOMA Business School · August 2024',
+                    'Recognised for academic excellence and strong overall admission profile',
+                    'Awarded upon entry into the Master\'s programme at NEOMA Business School',
+                    'Reflects consistent academic performance and competitive standing among international applicants'
+                ]
+            },
+            {
+                title: 'APSSDC Python Programming FDP',
+                icon: 'fas fa-certificate',
+                list: [
+                    'Certificate No. Python/FDP/288 · Andhra Pradesh State Skill Development Corporation',
+                    'Successfully completed APSSDC online Faculty Development Programme on Python Programming',
+                    'Programme duration: 01-06-2020 to 13-06-2020',
+                    'Signed by Dr. B. Nageswara Rao (Executive Director) and Dr. Arja Srikanth (MD & CEO, APSSDC)',
+                    'Strengthened programming foundations and practical Python skills · <a href="https://github.com/Venkatasomanath/My-Achievements/blob/main/APSSDC-%20Python%20workshop.jpeg" target="_blank" style="color:var(--accent)">View Certificate</a>'
+                ]
+            }
+        ]
+    },
+
+    ach2: {
+        tag: 'Open Badge',
+        icon: '🌿',
+        grad: 'grad-6',
+        title: 'NEOMACT Academy – Climate & Environment Badges',
+        meta: [
+            { icon: 'fas fa-university', text: 'NEOMA Business School' },
+            { icon: 'fas fa-calendar', text: 'Dec 2024 · May 2025 · Dec 2025' }
+        ],
+        desc: 'Three open digital badges issued by NEOMA BS for completing the NEOMACT Academy programme – an online training developed in partnership with AXA Climate covering climate change, biodiversity collapse, and resource depletion.',
+        sections: [
+            {
+                title: 'Programme Overview',
+                icon: 'fas fa-leaf',
+                list: [
+                    'Online learning programme developed in partnership with AXA Climate',
+                    'Covers climate change science, collapse of biodiversity, and resource exhaustion',
+                    'Explores environmental challenges and individual and professional responses',
+                    'Criterion: Completed all modules with 60%+ success rate on all quizzes',
+                    'Endorsed by Trézorium as a trusted organisational programme'
+                ]
+            },
+            {
+                title: 'Digital Badges Earned',
+                icon: 'fas fa-award',
+                list: [
+                    'Badge 1 – NEOMACT Academy (Apprenants) · Issued 20 Dec 2024 · <a href="https://openbadgefactory.com/obv3/credentials/76b34dcf1de9e991e822bf9af88eea5a8ff50cb0" target="_blank" style="color:var(--accent)">Verify Badge</a>',
+                    'Badge 2 – NEOMACT Academy (Apprenants) · Issued 30 May 2025 · <a href="https://openbadgefactory.com/obv3/credentials/464332503f676ff08bee72643e4088fdf00bf962" target="_blank" style="color:var(--accent)">Verify Badge</a>',
+                    'Badge 3 – NEOMACT Academy (Apprenants) · Issued 18 Dec 2025 · <a href="https://openbadgefactory.com/obv3/credentials/8062c03325ca242b036ddfa62c3a0615f256c69c" target="_blank" style="color:var(--accent)">Verify Badge</a>',
+                    'All badges verifiable via Open Badge Factory platform'
+                ]
+            }
+        ]
+    },
+
+    // VOLUNTEER EXPERIENCE
+    vol1: {
+        tag: 'Volunteer – Education',
+        icon: '🎓',
+        grad: 'grad-1',
+        title: 'Volunteer Explorer & Skills Builder',
+        meta: [
+            { icon: 'fas fa-building', text: 'University of Leeds' },
+            { icon: 'fas fa-calendar', text: 'Apr 2026 – Present · 1 mo' }
+        ],
+        desc: 'Completed structured volunteering training programmes at the University of Leeds focused on building foundational knowledge and practical readiness for community engagement.',
+        sections: [
+            {
+                title: 'Key Competencies Developed',
+                icon: 'fas fa-shield-alt',
+                list: [
+                    'Explored the volunteering landscape through introductory training, gaining insight into community engagement pathways and expectations',
+                    'Developed core competencies in safeguarding, equality, diversity & inclusion (EDI), and health & safety',
+                    'Acquired awareness of first aid principles, GDPR, confidentiality, and British values for ethical volunteer environments',
+                    'Built a strong foundation in personal development and reflection, aligning skills with meaningful community service',
+                    'Enhanced understanding of the "5 Ways to Wellbeing", promoting positive mental health and sustainable volunteering practices',
+                    'Demonstrated commitment to continuous learning and active contribution to social impact initiatives'
+                ]
+            },
+            {
+                title: 'Badges Earned',
+                icon: 'fas fa-award',
+                list: [
+                    'Volunteer Explorer Badge – Recognises completion of exploratory volunteering orientation · <a href="https://navigatr.app/profile/19565/venkata-somanath-chittilla/badge/6113/-" target="_blank" style="color:var(--accent)">View Badge</a>',
+                    'Volunteer Skills Builder Badge – Recognises development of foundational volunteer competencies · <a href="https://navigatr.app/profile/19565/venkata-somanath-chittilla/badge/6112/-" target="_blank" style="color:var(--accent)">View Badge</a>'
+                ]
+            }
+        ]
+    },
+
+    vol2: {
+        tag: 'Volunteer – Arts & Culture',
+        icon: '🎨',
+        grad: 'grad-3',
+        title: 'Club Coordinator – Arts & Culture',
+        meta: [
+            { icon: 'fas fa-building', text: 'NSRIT (Autonomous)' },
+            { icon: 'fas fa-calendar', text: 'Sep 2018 – Dec 2020 · 2 yrs 4 mos' }
+        ],
+        desc: 'Actively led and participated in university clubs focused on dance and music, contributing to cultural events, performances, and the promotion of Indian arts and traditions.',
+        sections: [
+            {
+                title: 'Contributions & Activities',
+                icon: 'fas fa-paint-brush',
+                list: [
+                    'Actively participated in university clubs focused on dance and music, contributing to cultural events and performances',
+                    'Promoted awareness and appreciation of Indian arts, traditions, and cultural heritage through student-led initiatives',
+                    'Collaborated with peers to organise and perform in cultural programmes, enhancing campus engagement and diversity',
+                    'Delivered informal sessions highlighting the significance of Indian culture, values, and artistic expression',
+                    'Developed skills in teamwork, creativity, event coordination, and public speaking through cultural activities',
+                    'Fostered an inclusive and vibrant campus environment by encouraging participation in arts and cultural events'
+                ]
+            }
+        ]
+    },
+
+    vol3: {
+        tag: 'Volunteer – Health',
+        icon: '🩸',
+        grad: 'grad-2',
+        title: 'Blood Donation Volunteer (Community Contributor)',
+        meta: [
+            { icon: 'fas fa-building', text: 'Vizag Volunteers Association' },
+            { icon: 'fas fa-calendar', text: 'Jan 2019 – Present · 7+ years' }
+        ],
+        desc: 'Regular voluntary blood donor actively supporting community healthcare initiatives through Vizag Volunteers Association since January 2019.',
+        sections: [
+            {
+                title: 'Community Impact',
+                icon: 'fas fa-heart',
+                list: [
+                    'Donated blood multiple times through community-led initiatives, contributing to emergency healthcare needs',
+                    'Supported local blood donation drives aimed at improving access to critical medical resources',
+                    'Demonstrated ongoing commitment to social responsibility and community well-being over 7+ years',
+                    'Promoted awareness of voluntary blood donation and its life-saving impact within local communities',
+                    'Reflects a sustained dedication to humanitarian service and active civic participation'
+                ]
+            }
+        ]
+    },
+
+    vol4: {
+        tag: 'Volunteer – Environment',
+        icon: '🌱',
+        grad: 'grad-3',
+        title: 'Environmental Contributor',
+        meta: [
+            { icon: 'fas fa-building', text: 'Tilicho Labs' },
+            { icon: 'fas fa-calendar', text: 'Sep 2019 · 1 month' }
+        ],
+        desc: 'Participated in an environmental cleanup initiative organised by Tilicho Labs, contributing to sustainability-focused field activities including cleaning drives and tree plantation.',
+        sections: [
+            {
+                title: 'Contributions & Activities',
+                icon: 'fas fa-leaf',
+                list: [
+                    'Participated in environmental cleanup initiatives organised by Tilicho Labs, contributing to sustainability-focused field activities',
+                    'Actively engaged in cleaning drives to help maintain a clean and pollution-free environment',
+                    'Contributed to tree plantation activities, supporting ecological restoration and green cover enhancement',
+                    'Promoted environmental awareness among community members to encourage responsible and sustainable practices',
+                    'Supported initiatives aimed at fostering a clean, green, and eco-friendly environment through active on-ground participation'
+                ]
+            }
+        ]
     }
 };
 
