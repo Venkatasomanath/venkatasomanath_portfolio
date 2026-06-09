@@ -1669,7 +1669,39 @@
         <div class="card-action"><i class="fas fa-play"></i> View</div>
         <div class="card-year">Apr 2026</div>
     </div>
-</div>      
+</div>
+
+<div class="nf-card" onclick="openModal('cert11')">
+    <div class="card-thumb-wrap">
+        <div class="card-thumb-bg grad-2">🛡️</div>
+        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+    </div>
+    <div class="card-body">
+        <span class="card-tag">Vibe Security</span>
+        <div class="card-title">Junior GRC Analyst (JGA)</div>
+        <div class="card-desc">Foundational proficiency in GRC – Governance, Risk, and Compliance methodologies and practices.</div>
+    </div>
+    <div class="card-footer">
+        <div class="card-action"><i class="fas fa-play"></i> View</div>
+        <div class="card-year">May 2026</div>
+    </div>
+</div>
+
+<div class="nf-card" onclick="openModal('cert12')">
+    <div class="card-thumb-wrap">
+        <div class="card-thumb-bg grad-1">🔎</div>
+        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+    </div>
+    <div class="card-body">
+        <span class="card-tag">Hack &amp; Fix</span>
+        <div class="card-title">COFPS</div>
+        <div class="card-desc">Certified Online Fraud Prevention Specialist – fraud detection, prevention, and online security strategies.</div>
+    </div>
+    <div class="card-footer">
+        <div class="card-action"><i class="fas fa-play"></i> View</div>
+        <div class="card-year">May 2026</div>
+    </div>
+</div>
             </div>
             <button class="slider-btn next" onclick="slide(this,1)"><i class="fas fa-chevron-right"></i></button>
         </div>
@@ -1702,6 +1734,22 @@
                     <div class="card-footer">
                         <div class="card-action"><i class="fas fa-play"></i> Full Details</div>
                         <div class="card-year">Mar 2023–Sep2024</div>
+                    </div>
+                </div>
+
+                <div class="nf-card wide" onclick="openModal('exp3')">
+                    <div class="card-thumb-wrap">
+                        <div class="card-thumb-bg grad-2">🛡️</div>
+                        <div class="card-thumb-icon"><i class="fas fa-info"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">Wipro Technologies</span>
+                        <div class="card-title">Cybersecurity Intern</div>
+                        <div class="card-desc">Splunk SIEM monitoring, digital forensics with Autopsy, Checkpoint firewall management, and vulnerability assessments.</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-action"><i class="fas fa-play"></i> Full Details</div>
+                        <div class="card-year">Aug 2022–Feb 2023</div>
                     </div>
                 </div>
 
@@ -3010,6 +3058,62 @@ const modalData = {
         linkText: 'View Certificate'
     },
 
+    cert11: {
+        tag: 'Vibe Security Certification',
+        icon: '🛡️',
+        grad: 'grad-2',
+        title: 'Junior GRC Analyst (JGA) – Vibe Security',
+        meta: [
+            { icon: 'fas fa-building', text: 'Vibe Security' },
+            { icon: 'fas fa-calendar', text: 'Issued: May 18, 2026' },
+            { icon: 'fas fa-certificate', text: 'Governance, Risk & Compliance' },
+            { icon: 'fas fa-hashtag', text: 'Cert ID: VS-JGRC-CERT786270' }
+        ],
+        desc: 'Successfully completed the Junior GRC Analyst (JGA) certification by Vibe Security, demonstrating foundational proficiency in GRC (Governance, Risk, and Compliance) methodologies and principles through rigorous hands-on assessment of essential GRC practices.',
+        sections: [{
+            title: 'Skills Covered',
+            icon: 'fas fa-list',
+            list: [
+                'GRC framework fundamentals – Governance, Risk, and Compliance principles',
+                'Risk identification, assessment, and treatment methodologies',
+                'Compliance programme management and regulatory alignment',
+                'Security governance structures and policy development',
+                'Internal controls design and effectiveness evaluation',
+                'GRC tooling and documentation best practices',
+                'Hands-on assessment of real-world GRC scenarios and case studies'
+            ]
+        }],
+        link: 'https://vibsecurity.com/verify-certificate?id=VS-JGRC-CERT786270',
+        linkText: 'Verify Certificate'
+    },
+
+    cert12: {
+        tag: 'Hack & Fix Certification',
+        icon: '🔎',
+        grad: 'grad-1',
+        title: 'Certified Online Fraud Prevention Specialist (COFPS) – Hack & Fix',
+        meta: [
+            { icon: 'fas fa-building', text: 'Hack & Fix Academy' },
+            { icon: 'fas fa-calendar', text: 'Issued: May 22, 2026' },
+            { icon: 'fas fa-certificate', text: 'Online Fraud Prevention' },
+            { icon: 'fas fa-hashtag', text: 'ID: 2010-2683-3500-6185' }
+        ],
+        desc: 'Officially recognised as a Certified Online Fraud Prevention Specialist (COFPS) by Hack & Fix Academy, having completed all programme requirements and evaluation criteria focused on online fraud detection, prevention, and security.',
+        sections: [{
+            title: 'Skills Covered',
+            icon: 'fas fa-list',
+            list: [
+                'Online fraud typologies – phishing, social engineering, identity theft, account takeover',
+                'Fraud detection techniques and behavioural analytics',
+                'Digital forensics fundamentals for fraud investigation',
+                'Fraud risk assessment and mitigation strategies',
+                'Regulatory and legal frameworks governing online fraud',
+                'Incident response and fraud case management workflows',
+                'Security awareness and anti-fraud programme design'
+            ]
+        }]
+    },
+
     cert10: {
         tag: 'HP LIFE',
         icon: '🧠',
@@ -3110,6 +3214,54 @@ const modalData = {
             { value: '✓', label: 'Business continuity maintained' }
         ]
     },
+    exp3: {
+        tag: 'Wipro Technologies',
+        icon: '🛡️',
+        grad: 'grad-2',
+        title: 'Cybersecurity Intern',
+        meta: [
+            { icon: 'fas fa-building', text: 'Wipro Technologies' },
+            { icon: 'fas fa-calendar', text: 'August 2022 – February 2023' },
+            { icon: 'fas fa-map-marker-alt', text: 'India' }
+        ],
+        desc: 'Hands-on cybersecurity internship focused on security monitoring, digital forensics, network security, and vulnerability management within an enterprise environment.',
+        sections: [
+            {
+                title: 'Security Monitoring & Incident Triage',
+                icon: 'fas fa-eye',
+                list: [
+                    'Monitored and analysed security events using Splunk SIEM, investigating alerts related to network anomalies and potential intrusions',
+                    'Contributed to incident triage and response workflows, helping classify and escalate security events based on severity and impact',
+                    'Reviewed Splunk dashboards and alert logs to identify patterns indicative of suspicious activity or policy violations'
+                ]
+            },
+            {
+                title: 'Digital Forensics & Network Security',
+                icon: 'fas fa-search',
+                list: [
+                    'Supported digital forensics investigations using Autopsy, assisting with disk and file system analysis to identify artefacts and potential indicators of compromise',
+                    'Assisted in managing Checkpoint Firewalls, including rule reviews and configuration checks to strengthen network perimeter security',
+                    'Gained practical exposure to firewall policy management and network traffic filtering concepts'
+                ]
+            },
+            {
+                title: 'Vulnerability Management & Frameworks',
+                icon: 'fas fa-shield-alt',
+                list: [
+                    'Conducted vulnerability assessments across internal systems and developed awareness of common cyber-attack vectors, applying knowledge of NIST and SOX frameworks to support risk identification and basic remediation reporting',
+                    'Built foundational knowledge of cybersecurity frameworks including NIST CSF and SOX IT controls, supporting risk identification and control gap documentation',
+                    'Developed awareness of common attack vectors such as phishing, privilege escalation, lateral movement, and social engineering through structured learning and team exposure'
+                ]
+            }
+        ],
+        impacts: [
+            { value: 'Splunk', label: 'SIEM Monitoring' },
+            { value: 'Autopsy', label: 'Digital Forensics' },
+            { value: 'Checkpoint', label: 'Firewall Management' },
+            { value: 'NIST/SOX', label: 'Framework Awareness' }
+        ]
+    },
+
     exp2: {
         tag: 'Wipro Technologies',
         icon: '📈',
